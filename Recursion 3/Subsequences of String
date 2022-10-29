@@ -1,0 +1,23 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+class Solution {
+
+    public static ArrayList<String> subsequences(String str) {
+        ArrayList<String> list = new ArrayList<>();
+        findsubsequence(str,"",list);
+        return list;
+    }
+
+    static void findsubsequence(String s,String ans,ArrayList<String> list){
+        if(s.length()==0){
+            if(ans.length() > 0)
+                list.add(ans);
+            return;
+        }
+        findsubsequence(s.substring(1),ans,list);
+        findsubsequence(s.substring(1),ans+s.charAt(0),list);
+        
+    }
+}
